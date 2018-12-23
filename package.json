@@ -15,5 +15,9 @@
   "bugs": {
     "url": "https://github.com/VAggrippino/betacode_interview_01/issues"
   },
-  "homepage": "https://github.com/VAggrippino/betacode_interview_01#readme"
+  "homepage": "https://github.com/VAggrippino/betacode_interview_01#readme",
+  "devDependencies": {
+    "eslint": "^5.11.0",
+    "eslint-config-google": "^0.11.0"
+  }
 }
