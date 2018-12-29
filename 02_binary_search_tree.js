@@ -9,10 +9,10 @@
  *    A parent can only have 2 immediate child nodes.
  * 
  *    1. Write a method to add an item to the model so the caller can build the
- *       tree like below. BST. [see BST instance class: add]
+ *       tree like below. BST. [see BST instance method: add]
  *    2. Then perform a walk of depth first search on the model so we get result
  *       like this: `21, 56, 62, 67, 78, 81, 97, 115`
- *       [see BST instance class preOrder]
+ *       [see BST instance method: preOrder]
  * 
  *    ![Binary Search Tree example](images/Binary_Search_Tree_example.jpg)
  * 
