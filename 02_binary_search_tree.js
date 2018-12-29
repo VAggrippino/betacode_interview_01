@@ -69,6 +69,7 @@ class BST {
           return;
         }
 
+        // Otherwise, dig deeper
         return insertValue(node.right, newValue);
       }
     };
@@ -81,7 +82,7 @@ class BST {
       return null;
     } else {
       const result = [];
-      function traversePreOrder(node) {
+      const traversePreOrder = (node) => {
         result.push(node.value);
         node.left && traversePreOrder(node.left);
         node.right && traversePreOrder(node.right);
