@@ -14,7 +14,7 @@ Create a repo at your github as soon as you start to answer the following questi
     A parent can only have 2 immediate child node.
 
     1. Write a method to add item to the model so caller can build the tree like below.
-    2. Then perform a walk of depth first search on the model so we get result like this: 21, 56, 62, 67, 78, 81, 97, 115
+    2. Then perform a walk of depth first search on the model so we get result like this: `21, 56, 62, 67, 78, 81, 97, 115`
 
     ![Binary Search Tree example](images/Binary_Search_Tree_example.jpg)
 
