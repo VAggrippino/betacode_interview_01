@@ -31,7 +31,6 @@ class UserForm extends React.Component {
 
   onFormSubmit = async (e) => {
     e.preventDefault();
-    console.log(e.target.action);
     const data = {
       firstName: this.state.firstName,
       lastName: this.state.lastName,
@@ -54,7 +53,7 @@ class UserForm extends React.Component {
 
     const response = await fetch(url, init);
     const json = await response.json();
-    console.log(json);
+    this.props.onSubmissionReturned(json.data);
   };
 
   firstNameIsValid = () => {
