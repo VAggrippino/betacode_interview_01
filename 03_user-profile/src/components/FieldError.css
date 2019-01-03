@@ -1,0 +1,9 @@
+.field-error {
+  height: var(--field-height);
+  line-height: var(--field-height);
+  color: red;
+  font-weight: bold;
+  margin-top: calc(0rem - var(--field-height));
+  box-sizing: border-box;
+  padding-left: 0.25rem;
+}

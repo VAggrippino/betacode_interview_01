@@ -1,12 +1,9 @@
 import React from 'react';
+import UserForm from './UserForm';
 
 class App extends React.Component {
   render() {
-    return (
-      <div>
-        <h1>User Profile</h1>
-      </div>
-    );
+    return <UserForm />;
   }
 }
 
