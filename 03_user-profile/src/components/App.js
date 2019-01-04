@@ -24,6 +24,20 @@ class App extends React.Component {
     this.setState({submissionData});
   };
 
+  resetState = () => {
+    const blankUserInfo = {
+      firstName: '',
+      lastName: '',
+      email: '',
+      dob: '',
+      jobTitle: '',
+      experience: '',
+      submissionData: null
+    };
+
+    this.setState(blankUserInfo);
+  };
+
   render() {
     return (
       <div>
@@ -32,7 +46,10 @@ class App extends React.Component {
           userInfo={this.state}
           onSubmissionReturned={this.onSubmissionReturned}
         />
-        <SubmissionResults data={this.state.submissionData} />
+        <SubmissionResults
+          onReset={this.resetState}
+          data={this.state.submissionData}
+        />
       </div>
     );
   }
