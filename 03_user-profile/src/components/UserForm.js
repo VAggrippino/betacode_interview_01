@@ -1,14 +1,13 @@
 import React from 'react';
 import serialize from 'serialize-javascript';
+import FieldError from './FieldError';
+import './UserForm.css';
 
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faAsterisk } from '@fortawesome/free-solid-svg-icons'
-
-import FieldError from './FieldError';
-import './UserForm.css';
-
 library.add(faAsterisk);
+
 
 class UserForm extends React.Component {
   state = {
