@@ -78,8 +78,6 @@ class UserForm extends React.Component {
     const formIsValid = firstNameIsValid && lastNameIsValid && emailIsValid;
 
     this.setState({formIsValid});
-    console.log(`name: ${name}`);
-
     this.props.updateUserInfo({[name]: value});
 
     const validate = (name, value) => {
