@@ -123,6 +123,19 @@ class UserForm extends React.Component {
     const lnClass = lastNameError ? invalidFieldClass : requiredFieldClass;
     const emailClass = emailError ? invalidFieldClass : requiredFieldClass;
 
+    // Set the maximum birth date based on a minimum age
+    const maxDob = new Date();
+    const minAge = 13;
+    maxDob.setFullYear(maxDob.getFullYear() - minAge);
+
+    const maxYear = maxDob.getFullYear();
+
+    let maxMonth = maxDob.getMonth() + 1
+    if (maxMonth < 10) maxMonth = '0' + maxMonth;
+
+    let maxDay = maxDob.getDay() + 1;
+    if (maxDay < 10) maxDay = '0' + maxDay;
+
     return (
       <div className="wrapper">
         <div className="header">
@@ -169,9 +182,9 @@ class UserForm extends React.Component {
           <div className="field">
             <label htmlFor="dob">Birth Date:</label>
             <input id="dob" name="dob" type="date"
+              max={`${maxYear}-${maxMonth}-${maxDay}`}
               value={this.props.userInfo.dob}
               onChange={this.onInputChange}
-              placeholder="DD-MON-YYYY"
             />
           </div>
 
