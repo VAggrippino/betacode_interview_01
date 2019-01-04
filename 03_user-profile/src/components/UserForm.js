@@ -11,12 +11,6 @@ library.add(faAsterisk);
 
 class UserForm extends React.Component {
   state = {
-    firstName: '',
-    lastName: '',
-    email: '',
-    dob: '',
-    jobTitle: '',
-    experience: '',
     firstNameError: false,
     lastNameError: false,
     emailError: false,
@@ -30,13 +24,14 @@ class UserForm extends React.Component {
 
   onFormSubmit = async (e) => {
     e.preventDefault();
+    const userInfo = this.props.userInfo;
     const data = {
-      firstName: this.state.firstName,
-      lastName: this.state.lastName,
-      email: this.state.email,
-      dob: this.state.dob,
-      jobTitle: this.state.jobTitle,
-      experience: this.state.experience
+      firstName: userInfo.firstName,
+      lastName: userInfo.lastName,
+      email: userInfo.email,
+      dob: userInfo.dob,
+      jobTitle: userInfo.jobTitle,
+      experience: userInfo.experience
     };
 
     // const url = e.target.action;
@@ -83,6 +78,9 @@ class UserForm extends React.Component {
     const formIsValid = firstNameIsValid && lastNameIsValid && emailIsValid;
 
     this.setState({formIsValid});
+    console.log(`name: ${name}`);
+
+    this.props.updateUserInfo({[name]: value});
 
     const validate = (name, value) => {
       const formErrors = this.state.formErrors;
@@ -111,7 +109,7 @@ class UserForm extends React.Component {
       this.setState({formErrors});
     };
 
-    this.setState({[name]: value}, () => validate(name, value));
+    validate(name, value);
   }
 
   render() {
@@ -134,8 +132,8 @@ class UserForm extends React.Component {
         </div>
         <form className="user-form"
           action="https://api.dummyendpoint/me/profile"
-          // PUT method is not valid in HTML forms, but will be handled in submit
-          // handler
+          // The HTTP PUT method is not valid in HTML forms, but it will be
+          // handled in the submit handler
           method="post"
           onSubmit={this.onFormSubmit}
         >
@@ -143,7 +141,7 @@ class UserForm extends React.Component {
           <div className={fnClass.join(' ')}>
             <label htmlFor="firstName">First Name:</label>
             <input id="firstName" name="firstName" type="text" autoFocus required
-              value={this.state.firstName}
+              value={this.props.userInfo.firstName}
               onChange={(e) => this.onInputChange(e)}
             />
             <FontAwesomeIcon icon="asterisk" />
@@ -153,7 +151,7 @@ class UserForm extends React.Component {
           <div className={lnClass.join(' ')}>
             <label htmlFor="lastName">Last Name:</label>
             <input id="lastName" name="lastName" type="text" required
-              value={this.state.lastName}
+              value={this.props.userInfo.lastName}
               onChange={this.onInputChange}
             />
             <FontAwesomeIcon icon="asterisk" />
@@ -163,8 +161,8 @@ class UserForm extends React.Component {
           <div className={emailClass.join(' ')}>
             <label htmlFor="email">Email Address:</label>
             <input id="email" name="email" type="email" required
-              value={this.state.email}
-              onChange={(e) => this.onInputChange(e)}
+              value={this.props.userInfo.email}
+              onChange={this.onInputChange}
             />
             <FontAwesomeIcon icon="asterisk" />
             <FieldError fieldName="email" formErrors={this.state.formErrors} />
@@ -173,25 +171,25 @@ class UserForm extends React.Component {
           <div className="field">
             <label htmlFor="dob">Birth Date:</label>
             <input id="dob" name="dob" type="date"
-              value={this.state.dob}
-              onChange={e => this.setState({dob: e.target.value})}
+              value={this.props.userInfo.dob}
+              onChange={this.onInputChange}
               placeholder="DD-MON-YYYY"
             />
           </div>
 
           <div className="field">
-            <label htmlFor="job-title">Preferred Job Title:</label>
-            <input id="job-title" name="job-title" type="text"
-              value={this.state.jobTitle}
-              onChange={e => this.setState({jobTitle: e.target.value})}
+            <label htmlFor="jobTitle">Preferred Job Title:</label>
+            <input id="jobTitle" name="jobTitle" type="text"
+              value={this.props.userInfo.jobTitle}
+              onChange={this.onInputChange}
             />
           </div>
 
           <div className="field">
             <label htmlFor="experience">Years of Experience:</label>
             <input id="experience" name="experience" type="number"
-              value={this.state.experience}
-              onChange={e => this.setState({experience: e.target.value})}
+              value={this.props.userInfo.experience}
+              onChange={this.onInputChange}
             />
           </div>
           <div>

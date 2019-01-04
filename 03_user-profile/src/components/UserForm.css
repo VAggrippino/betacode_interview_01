@@ -99,21 +99,15 @@ linear-gradient(90deg, transparent 50%, rgba(255,255,255,.19) 50%);
   background-color: dodgerblue;
   width: 10em;
   border-style: none;
-  border-radius: 20px;
+  border-radius: 3px;
   position: relative;
   margin-left: calc(var(--field-width) / 2);
   transform: translateX(-50%);
   transition: background-color 500ms;
-  box-shadow: 1px 1px 0 0 rgba(0, 0, 0, 0.5);
 }
 
 .user-form input[type="submit"]:disabled {
   background-color: silver;
-  box-shadow: none;
-}
-
-.user-form input[type="submit"]:focus {
-  outline: none;
 }
 
 .user-form input[type="submit"]:active {
