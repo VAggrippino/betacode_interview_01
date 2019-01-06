@@ -1,0 +1,15 @@
+.create-form {
+  box-sizing: border-box;
+
+  .field {
+    display: flex;
+    flex-direction: column;
+    margin: 0.5rem 0;
+  }
+
+  .buttons {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 0.25rem;
+  }
+}

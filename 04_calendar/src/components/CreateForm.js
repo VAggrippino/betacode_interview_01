@@ -1,4 +1,5 @@
 import React from 'react';
+import './scss/CreateForm.scss';
 
 class CreateForm extends React.Component {
   render() {
@@ -9,6 +10,7 @@ class CreateForm extends React.Component {
           <input
             className="create-form--description"
             id="create-form--description"
+            placeholder="Describe your event"
             type="text"
           />
         </div>

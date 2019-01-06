@@ -6,7 +6,7 @@ import './scss/Controls.scss';
 class Controls extends React.Component {
   render() {
     return (
-      <div className="Controls">
+      <div className="controls">
         <CreateForm />
         <GenerateButton />
       </div>
