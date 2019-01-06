@@ -1,0 +1,32 @@
+
+html, body {
+  margin: 0;
+}
+
+body {
+  height: 100vh;
+}
+
+#root {
+  height: 100%;
+}
+
+.calendar {
+  $header-height: 3rem;
+
+  height: 100%;
+
+  .calendar--header {
+    h1 {
+      font-size: $header-height * 2/3;
+      margin: 0;
+      height: $header-height;
+      line-height: $header-height;
+    }
+  }
+
+  .calendar--main {
+    height: calc(100% - #{$header-height});
+  }
+}
+
