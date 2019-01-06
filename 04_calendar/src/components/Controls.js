@@ -1,5 +1,6 @@
 import React from 'react';
 import CreateButton from './CreateButton';
+import GenerateButton from './GenerateButton';
 import './scss/Controls.scss';
 
 class Controls extends React.Component {
@@ -7,6 +8,7 @@ class Controls extends React.Component {
     return (
       <div className="Controls">
         <CreateButton />
+        <GenerateButton />
       </div>
     );
   }
