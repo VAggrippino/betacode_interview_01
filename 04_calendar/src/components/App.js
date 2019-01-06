@@ -1,5 +1,6 @@
 import React from 'react';
 import Month from './Month';
+import Controls from './Controls';
 import './scss/App.scss';
 
 class App extends React.Component {
@@ -9,6 +10,9 @@ class App extends React.Component {
         <header className="calendar--header">
           <h1>Calendar App</h1>
         </header>
+        <aside className="calendar--controls">
+          <Controls />
+        </aside>
         <main className="calendar--main">
           <Month />
         </main>

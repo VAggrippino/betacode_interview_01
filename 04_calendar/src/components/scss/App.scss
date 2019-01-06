@@ -16,7 +16,11 @@ body {
 
   height: 100%;
 
+  display: flex;
+  flex-wrap: wrap;
+
   .calendar--header {
+    flex: 100%;
     h1 {
       font-size: $header-height * 2/3;
       margin: 0;
@@ -25,8 +29,14 @@ body {
     }
   }
 
+  .calendar--controls {
+    height: calc(100% - #{$header-height});
+    flex: 0 20%;
+  }
+
   .calendar--main {
     height: calc(100% - #{$header-height});
+    flex: 1;
   }
 }
 
