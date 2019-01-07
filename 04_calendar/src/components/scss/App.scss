@@ -21,6 +21,7 @@ body {
 
   .calendar--header {
     flex: 100%;
+    display: flex;
     h1 {
       font-size: $header-height * 2/3;
       margin: 0;
