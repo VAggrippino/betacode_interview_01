@@ -13,6 +13,7 @@ body {
 
 .calendar {
   $header-height: 3rem;
+  $sidebar-basis: 13rem;
 
   height: 100%;
 
@@ -22,17 +23,42 @@ body {
   .calendar--header {
     flex: 100%;
     display: flex;
+
     h1 {
+      white-space: nowrap;
+      text-align: center;
       font-size: $header-height * 2/3;
       margin: 0;
       height: $header-height;
       line-height: $header-height;
     }
+
+    .apptitle {
+      flex: 0 0 $sidebar-basis;
+      display: flex;
+      height: $header-height;
+      line-height: $header-height;
+    }
+
+    .apptitle--logo {
+      padding: 0 1em;
+    }
+
+    .display-month {
+      display: grid;
+      grid-gap: 5px;
+      grid-template-columns: 1.5em 1.5em auto;
+
+      button {
+        border-style: none;
+        background-color: #eee;
+      }
+    }
   }
 
   .calendar--controls {
     height: calc(100% - #{$header-height});
-    flex: 0 20%;
+    flex: 0 0 $sidebar-basis;
   }
 
   .calendar--main {
