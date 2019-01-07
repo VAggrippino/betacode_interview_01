@@ -42,7 +42,7 @@ class App extends React.Component {
     const month = this.state.activeDate.getMonth() + n;
     const newDate = new Date();
     newDate.setMonth(month);
-    this.setState({activeDate: newDate}, () => console.log(this.state.activeDate));
+    this.setState({activeDate: newDate});
   }
 
   render() {

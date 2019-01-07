@@ -28,7 +28,7 @@ class Month extends React.Component {
         <div className="month--days">
           {([...Array(42).keys()].map((day) => {
             const dayValue = dateViewStart + day;
-            const dayDate = new Date();
+            const dayDate = new Date(this.props.activeDate);
             dayDate.setDate(dayValue);
             return <MonthDay key={day} activeDate={this.props.activeDate} date={dayDate} />;
           }))}

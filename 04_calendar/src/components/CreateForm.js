@@ -7,12 +7,11 @@ class CreateForm extends React.Component {
       <form className="create-form">
         <div className="field">
           <label htmlFor="create-form--description">Description</label>
-          <input
+          <textarea
             className="create-form--description"
             id="create-form--description"
-            placeholder="Describe your event"
-            type="text"
-          />
+            rows="3"
+          ></textarea>
         </div>
 
         <div className="field">
