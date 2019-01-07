@@ -4,16 +4,16 @@ import './scss/Month.scss';
 
 class Month extends React.Component {
   render() {
-    const activeDate = this.props.activeDate;
+    // Copy the activeDate so I don't have to change it.
+    const firstOfMonthDate = new Date(this.props.activeDate);
 
     // Determine what day of the week the month starts on.
     // getDay() starts on Sunday, but our calendar starts on Monday.
-    activeDate.setDate(1);
-    const firstOfMonth = (activeDate.getDay() === 0) ? 6 : activeDate.getDay() - 1;
+    firstOfMonthDate.setDate(1);
+    const firstOfMonthDay = (firstOfMonthDate.getDay() === 0) ? 6 : firstOfMonthDate.getDay() - 1;
 
     // setDate() arguments start at 1.
-    const dateViewStart = 1 - firstOfMonth;
-
+    const dateViewStart = 1 - firstOfMonthDay;
     return (
       <div className="month">
         <div className="month--daystrip">
@@ -26,11 +26,11 @@ class Month extends React.Component {
           <div>SUN</div>
         </div>
         <div className="month--days">
-          {([...Array(35).keys()].map((day) => {
+          {([...Array(42).keys()].map((day) => {
             const dayValue = dateViewStart + day;
             const dayDate = new Date();
             dayDate.setDate(dayValue);
-            return <MonthDay key={day} date={dayDate.getDate()} />;
+            return <MonthDay key={day} activeDate={this.props.activeDate} date={dayDate} />;
           }))}
         </div>
       </div>

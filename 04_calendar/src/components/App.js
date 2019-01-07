@@ -5,17 +5,22 @@ import './scss/App.scss';
 
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faAngleLeft, faAngleRight } from '@fortawesome/free-solid-svg-icons'
+import { faAngleLeft, faAngleRight, faCalendarAlt } from '@fortawesome/free-solid-svg-icons'
 
-library.add(faAngleLeft, faAngleRight);
+library.add(faAngleLeft, faAngleRight, faCalendarAlt);
 
 class App extends React.Component {
-  state = {
-    activeDate: new Date()
+  constructor(props) {
+    super(props);
+    const activeDate = new Date();
+
+    this.state = {
+      activeDate
+    };
   }
 
-  getMonthName = () => {
-    const month = [
+  getMonthName = (date) => {
+    const months = [
       'January',
       'February',
       'March',
@@ -30,16 +35,45 @@ class App extends React.Component {
       'December'
     ];
 
-    return month[this.state.activeDate.getMonth()];
+    return months[date.getMonth()];
+  }
+
+  onChangeMonth = (n) => {
+    const month = this.state.activeDate.getMonth() + n;
+    const newDate = new Date();
+    newDate.setMonth(month);
+    this.setState({activeDate: newDate}, () => console.log(this.state.activeDate));
   }
 
   render() {
+    const activeDate = this.state.activeDate;
+    const year = activeDate.getFullYear();
+    const monthName = this.getMonthName(activeDate);
+
     return (
       <div className="calendar">
         <header className="calendar--header">
-          <button><FontAwesomeIcon icon="angle-left" /></button>
-          <h1>{this.getMonthName()} {this.state.activeDate.getFullYear()}</h1>
-          <button><FontAwesomeIcon icon="angle-right" /></button>
+          <div className="apptitle">
+            <div className="apptitle--logo">
+              <FontAwesomeIcon icon="calendar-alt" />
+            </div>
+            <h1 className="apptitle--title">Calendar</h1>
+          </div>
+          <div className="display-month">
+            <button
+              className="calendar--header--month-button--previous"
+              onClick={() => this.onChangeMonth(-1)}
+            >
+              <FontAwesomeIcon icon="angle-left" />
+            </button>
+            <button
+              className="calendar--header--month-button--next"
+              onClick={() => this.onChangeMonth(1)}
+            >
+              <FontAwesomeIcon icon="angle-right" />
+            </button>
+            <h1>{monthName} {year}</h1>
+          </div>
         </header>
         <aside className="calendar--controls">
           <Controls />
