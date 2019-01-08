@@ -7,7 +7,10 @@ class Controls extends React.Component {
   render() {
     return (
       <div className="controls">
-        <CreateForm />
+        <CreateForm
+          onCreateEvent={this.props.onCreateEvent}
+          newEvent={this.props.newEvent}
+        />
         <GenerateButton generateEvent={this.props.generateEvent} />
       </div>
     );

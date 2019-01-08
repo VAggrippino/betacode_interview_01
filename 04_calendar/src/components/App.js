@@ -101,6 +101,16 @@ class App extends React.Component {
     this.setState({calendarEvents});
   }
 
+  onCreateEvent = (e) => {
+    e.preventDefault();
+    const date = document.getElementById('create-form--date').value;
+    const description = document.getElementById('create-form--description').value;
+    const event = {date, description};
+    const calendarEvents = this.state.calendarEvents.slice();
+    calendarEvents.push(event);
+    this.setState({calendarEvents});
+  }
+
   onChangeMonth = (n) => {
     const month = this.state.activeDate.getMonth() + n;
     const newDate = new Date();
@@ -139,7 +149,10 @@ class App extends React.Component {
           </div>
         </header>
         <aside className="calendar--controls">
-          <Controls generateEvent={this.generateEvent} />
+          <Controls
+            generateEvent={this.generateEvent}
+            onCreateEvent={this.onCreateEvent}
+          />
         </aside>
         <main className="calendar--main">
           <Month
