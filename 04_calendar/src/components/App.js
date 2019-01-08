@@ -56,6 +56,51 @@ class App extends React.Component {
     return months[date.getMonth()];
   }
 
+  generateEvent = () => {
+    // Select a random person
+    const names = [
+      'John Lennon',
+      'Paul McCartney',
+      'George Harrison',
+      'Ringo Starr',
+      'Goku Son',
+      'Luffy',
+      'Orochimaru',
+      'Ichigo Kurosaki',
+      'Tony Stark',
+      'Steve Rogers',
+      'Bruce Wayne',
+      'Clark Kent',
+      'Diana Prince',
+      'Andromeda Doig',
+      'Peter Parker',
+      'Dwayne Johnson',
+      'John McClane',
+      'John Wick',
+      'Jack Daniels'
+    ];
+    const person = names[Math.floor(Math.random()*names.length)];
+
+    // Select a random date in this month
+    const eventDate = new Date(this.state.activeDate);
+    const year = eventDate.getFullYear();
+
+    // 1-based month also helps figure out the last day of this month
+    eventDate.setMonth(eventDate.getMonth()+1)
+    const month = ('0' + eventDate.getMonth()).slice(-2);
+
+    eventDate.setDate(0) // 0: last day of previous month
+    const multiplier = eventDate.getDate();
+    const day = ('0' + Math.ceil(Math.random() * multiplier)).slice(-2);
+
+    const date = [year, month, day].join('-');
+    const description = `Meeting with ${person}`
+
+    const calendarEvents = this.state.calendarEvents.slice();
+    calendarEvents.push({date, description});
+    this.setState({calendarEvents});
+  }
+
   onChangeMonth = (n) => {
     const month = this.state.activeDate.getMonth() + n;
     const newDate = new Date();
@@ -94,7 +139,7 @@ class App extends React.Component {
           </div>
         </header>
         <aside className="calendar--controls">
-          <Controls />
+          <Controls generateEvent={this.generateEvent} />
         </aside>
         <main className="calendar--main">
           <Month

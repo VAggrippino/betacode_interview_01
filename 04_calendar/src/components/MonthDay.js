@@ -67,8 +67,13 @@ class MonthDay extends React.Component {
     return (
       <div className={classNames.join(' ')}>
         <div className="month--day--date">{displayDay}</div>
-        {todayEvents.map((event) => {
-          return <div className="month--day--event" key={event.date}>{event.description}</div>;
+        {todayEvents.map((event, i) => {
+          return (
+            <div
+              className="event"
+              key={event.date + '_' + i}
+            >{event.description}</div>
+          );
         })}
       </div>
     );

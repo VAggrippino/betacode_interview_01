@@ -8,7 +8,7 @@ class Controls extends React.Component {
     return (
       <div className="controls">
         <CreateForm />
-        <GenerateButton />
+        <GenerateButton generateEvent={this.props.generateEvent} />
       </div>
     );
   }

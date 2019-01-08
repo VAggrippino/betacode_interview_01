@@ -4,7 +4,7 @@
   border-style: solid;
   border-color: black;
   position: relative;
-  padding-top: 1rem;
+  overflow: auto;
 
   &:nth-child(7n) {
     border-right-width: 1px;
@@ -26,13 +26,14 @@
     height: 2.5ch;
     line-height: 2.5ch;
     text-align: center;
-    position: absolute;
+    margin: 0 0 0 auto;
+    position: sticky;
     top: 0;
     right: 0;
-    background-color: #ddd;
+    background-color: rgba(#ccc, 0.6);
   }
 
-  .month--day--event {
+  .event {
     font-size: 0.7em;
     color: white;
     background-color: green;
