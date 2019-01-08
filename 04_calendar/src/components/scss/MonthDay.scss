@@ -2,8 +2,9 @@
   box-sizing: border-box;
   border-width: 1px 0 0 1px;
   border-style: solid;
-  border-color: slateblue;
+  border-color: black;
   position: relative;
+  padding-top: 1rem;
 
   &:nth-child(7n) {
     border-right-width: 1px;
@@ -29,6 +30,15 @@
     top: 0;
     right: 0;
     background-color: #ddd;
+  }
+
+  .month--day--event {
+    font-size: 0.7em;
+    color: white;
+    background-color: green;
+    margin: 2px;
+    padding: 2px;
+    border-radius: 2px;
   }
 
   &.today .month--day--date {

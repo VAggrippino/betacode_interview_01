@@ -30,7 +30,13 @@ class Month extends React.Component {
             const dayValue = dateViewStart + day;
             const dayDate = new Date(this.props.activeDate);
             dayDate.setDate(dayValue);
-            return <MonthDay key={day} activeDate={this.props.activeDate} date={dayDate} />;
+            return (
+              <MonthDay key={day}
+                calendarEvents={this.props.calendarEvents}
+                activeDate={this.props.activeDate}
+                date={dayDate}
+              />
+            );
           }))}
         </div>
       </div>

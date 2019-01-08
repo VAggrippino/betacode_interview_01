@@ -14,8 +14,26 @@ class App extends React.Component {
     super(props);
     const activeDate = new Date();
 
+    const calendarEvents = [
+      { date: '2019-01-01', description: "New Year's Day" },
+      { date: '2019-02-14', description: "Valentine's Day" },
+      { date: '2019-03-17', description: "Saint Patrick's Day" },
+      { date: '2019-04-21', description: 'Easter' },
+      { date: '2019-05-30', description: 'Kaamatan (Sabah)' },
+      { date: '2019-05-31', description: 'Harvest Festival (Sabah)' },
+      { date: '2019-05-12', description: "Mother's Day (Malaysia)" },
+      { date: '2019-06-16', description: "Father's Day" },
+      { date: '2019-07-04', description: 'Independence Day (U.S.)' },
+      { date: '2019-08-11', description: 'Hari Raya Haji' },
+      { date: '2019-09-19', description: 'Talk Like a Pirate Day' },
+      { date: '2019-10-31', description: "Halloween" },
+      { date: '2019-11-28', description: 'Thanksgiving (U.S.)' },
+      { date: '2019-12-25', description: 'Christmas Day' }
+    ];
+
     this.state = {
-      activeDate
+      activeDate,
+      calendarEvents
     };
   }
 
@@ -79,7 +97,10 @@ class App extends React.Component {
           <Controls />
         </aside>
         <main className="calendar--main">
-          <Month activeDate={this.state.activeDate} />
+          <Month
+            activeDate={this.state.activeDate}
+            calendarEvents={this.state.calendarEvents}
+          />
         </main>
       </div>
     );
